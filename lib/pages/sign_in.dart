@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sneakers/widgets/auth_btn.dart';
 import 'package:sneakers/widgets/auth_text_field.dart';
+import 'package:sneakers/widgets/back.dart';
 
 class SignIn extends StatefulWidget {
   const SignIn({super.key});
@@ -23,6 +24,11 @@ class _SignInState extends State<SignIn> {
       body: Stack(
         // mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          Positioned(
+            top: screenHeight * (66 / 812),
+            left: screenWidth * (20 / 375),
+            child: Back(color: Color.fromRGBO(247, 247, 249, 1)),
+          ),
           Positioned(
             top: screenHeight * (121 / 812),
             left: 0,
@@ -71,11 +77,11 @@ class _SignInState extends State<SignIn> {
               child: Text(
                 'Email',
                 style: TextStyle(
-                    fontWeight: FontWeight.w400,
-                    fontSize: 16,
-                    letterSpacing: 0,
-                    fontStyle: FontStyle.italic,
-                    height: 1.25
+                  fontWeight: FontWeight.w400,
+                  fontSize: 16,
+                  letterSpacing: 0,
+                  fontStyle: FontStyle.italic,
+                  height: 1.25,
                 ),
               ),
             ),
@@ -83,7 +89,7 @@ class _SignInState extends State<SignIn> {
           Positioned(
             left: left,
             top: screenHeight * (277 / 812),
-            child: AuthTextField(controller: emailController, isPwd: false,),
+            child: AuthTextField(controller: emailController, isPwd: false),
           ),
           Positioned(
             top: screenHeight * (355 / 812),
@@ -91,48 +97,47 @@ class _SignInState extends State<SignIn> {
             child: Text(
               'Пароль',
               style: TextStyle(
-                  fontWeight: FontWeight.w400,
-                  fontSize: 16,
-                  letterSpacing: 0,
-                  fontStyle: FontStyle.italic,
-                  height: 1.25
+                fontWeight: FontWeight.w400,
+                fontSize: 16,
+                letterSpacing: 0,
+                fontStyle: FontStyle.italic,
+                height: 1.25,
               ),
             ),
           ),
           Positioned(
             left: left,
             top: screenHeight * (387 / 812),
-            child: AuthTextField(controller: pwdController, isPwd: true,),
+            child: AuthTextField(controller: pwdController, isPwd: true),
           ),
           Positioned(
             top: screenHeight * (447 / 812),
             right: left,
             child: GestureDetector(
-              child: SizedBox(
-                // width: 76,
-                height: 16,
-                child: Text(
-                  'Восстановить',
-                  style: TextStyle(
-                      fontFamily: 'New Peninim MT',
-                      fontWeight: FontWeight.w400,
-                      fontSize: 12,
-                      color: Color.fromRGBO(112, 123, 129, 1),
-                      height: 1,
-                      letterSpacing: 0,
-                      fontStyle: FontStyle.italic
-                  ),
+              child: Text(
+                'Восстановить',
+                style: TextStyle(
+                  fontFamily: 'New Peninim MT',
+                  fontWeight: FontWeight.w400,
+                  fontSize: 12,
+                  color: Color.fromRGBO(112, 123, 129, 1),
+                  height: 1,
+                  letterSpacing: 0,
+                  fontStyle: FontStyle.italic,
                 ),
               ),
-              onTap: () {},
+              onTap: () {
+                Navigator.pushNamed(context, '/forgot_password');
+              },
             ),
           ),
           Positioned(
             top: screenHeight * (487 / 812),
             left: left,
             child: AuthBtn(
+              radius: 14,
               onPressed: () {
-                Navigator.pushNamed(context, '/home');
+                Navigator.pushNamed(context, '/profile_in_account');
               },
               text: 'Войти',
             ),
@@ -147,29 +152,29 @@ class _SignInState extends State<SignIn> {
                 Text(
                   'Вы впервые? ',
                   style: TextStyle(
-                      fontWeight: FontWeight.w400,
-                      fontSize: 16,
-                      color: Color.fromRGBO(106, 106, 106, 1),
-                      height: 1,
-                      letterSpacing: 0,
-                      fontFamily: 'New Peninim MT',
-                      fontStyle: FontStyle.italic
+                    fontWeight: FontWeight.w400,
+                    fontSize: 16,
+                    color: Color.fromRGBO(106, 106, 106, 1),
+                    height: 1,
+                    letterSpacing: 0,
+                    fontFamily: 'New Peninim MT',
+                    fontStyle: FontStyle.italic,
                   ),
                 ),
                 GestureDetector(
                   child: Text(
                     'Создать пользователя',
                     style: TextStyle(
-                        fontWeight: FontWeight.w400,
-                        fontSize: 16,
-                        height: 1,
-                        letterSpacing: 0,
-                        fontFamily: 'New Peninim MT',
-                        fontStyle: FontStyle.italic
+                      fontWeight: FontWeight.w400,
+                      fontSize: 16,
+                      height: 1,
+                      letterSpacing: 0,
+                      fontFamily: 'New Peninim MT',
+                      fontStyle: FontStyle.italic,
                     ),
                   ),
                   onTap: () {
-                    print('CLICK');
+                    Navigator.pushNamed(context, '/register');
                   },
                 ),
               ],

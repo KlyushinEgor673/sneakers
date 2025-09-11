@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:sneakers/widgets/bag_button.dart';
 import 'package:sneakers/widgets/box_category.dart';
 import 'package:sneakers/widgets/card_sneaker.dart';
 import 'package:sneakers/widgets/custom_navigator_bar.dart';
+import 'package:sneakers/widgets/hamburger.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -15,12 +17,9 @@ class Home extends StatelessWidget {
       body: Stack(
         children: [
           Positioned(
-            top: screenHeight * (54 / 812),
+            top: screenHeight * (62 / 812),
             left: screenWidth * (20 / 375),
-            child: IconButton(
-              onPressed: () {},
-              icon: Image.asset('icons/Hamburger.png'),
-            ),
+            child: Hamburger(),
           ),
           Positioned(
             top: screenHeight * (54 / 812),
@@ -39,33 +38,23 @@ class Home extends StatelessWidget {
           Positioned(
             top: screenHeight * (48 / 812),
             left: screenWidth * (311 / 375),
-            child: Container(
-              height: screenHeight * (44 / 812),
-              width: screenHeight * (44 / 812),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(50),
-              ),
-              child: Image.asset('icons/bag-2.png', color: Colors.black),
-            ),
+            child: BagButton(),
           ),
           Positioned(
             top: screenHeight * (113 / 812),
             left: screenWidth * (20 / 375),
-            child: Container(
-              width: screenWidth * (269 / 375),
-              height: screenHeight * (52 / 812),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(14),
-                color: Colors.white,
-              ),
-              child: TextField(
-                decoration: InputDecoration(
-                  hint: Text('Поиск'),
-                  border: InputBorder.none,
-                  prefixIcon: Image.asset('icons/Marker.png'),
+            child: GestureDetector(
+              child: Container(
+                width: screenWidth * (269 / 375),
+                height: screenHeight * (52 / 812),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(14),
+                  color: Colors.white,
                 ),
               ),
+              onTap: () {
+                Navigator.pushNamed(context, '/search');
+              },
             ),
           ),
           Positioned(
@@ -100,19 +89,63 @@ class Home extends StatelessWidget {
           Positioned(
             top: screenHeight * (222 / 812),
             left: screenWidth * (20 / 375),
-            child: SingleChildScrollView(
-              child: Row(
-                children: [
-                  BoxCategory(text: 'Все'),
-                  SizedBox(width: screenWidth * (16 / 375)),
-                  BoxCategory(text: 'Outdoor'),
-                  SizedBox(width: screenWidth * (16 / 375)),
-                  BoxCategory(text: 'Tennis'),
-                  SizedBox(width: screenWidth * (16 / 375)),
-                  BoxCategory(text: 'Running'),
-                ],
+            child: SizedBox(
+              width: screenWidth - (screenWidth * (20 / 375)),
+              child: SingleChildScrollView(
+                child: Row(
+                  children: [
+                    BoxCategory(
+                      text: 'Все',
+                      color: Colors.white,
+                      onTap: () {
+                        Navigator.pushNamed(
+                          context,
+                          '/category',
+                          arguments: {'categoryName': 'Все'},
+                        );
+                      },
+                    ),
+                    SizedBox(width: screenWidth * (16 / 375)),
+                    BoxCategory(
+                      text: 'Outdoor',
+                      color: Colors.white,
+                      onTap: () {
+                        Navigator.pushNamed(
+                          context,
+                          '/category',
+                          arguments: {'categoryName': 'Outdoor'},
+                        );
+                      },
+                    ),
+                    SizedBox(width: screenWidth * (16 / 375)),
+                    BoxCategory(
+                      text: 'Tennis',
+                      color: Colors.white,
+                      onTap: () {
+                        Navigator.pushNamed(
+                          context,
+                          '/category',
+                          arguments: {'categoryName': 'Tennis'},
+                        );
+                      },
+                    ),
+                    SizedBox(width: screenWidth * (16 / 375)),
+                    BoxCategory(
+                      text: 'Running',
+                      color: Colors.white,
+                      onTap: () {
+                        Navigator.pushNamed(
+                          context,
+                          '/category',
+                          arguments: {'categoryName': 'Running'},
+                        );
+                      },
+                    ),
+                    SizedBox(width: screenWidth * (16 / 375)),
+                  ],
+                ),
+                scrollDirection: Axis.horizontal,
               ),
-              scrollDirection: Axis.horizontal,
             ),
           ),
           Positioned(
@@ -133,16 +166,21 @@ class Home extends StatelessWidget {
                       fontFamily: 'New Peninim MT',
                     ),
                   ),
-                  Text(
-                    'Все',
-                    style: TextStyle(
-                      letterSpacing: 0,
-                      fontFamily: 'New Peninim MT',
-                      fontSize: 12,
-                      fontStyle: FontStyle.italic,
-                      height: 16 / 12,
-                      color: Color.fromRGBO(72, 178, 231, 1),
+                  GestureDetector(
+                    child: Text(
+                      'Все',
+                      style: TextStyle(
+                        letterSpacing: 0,
+                        fontFamily: 'New Peninim MT',
+                        fontSize: 12,
+                        fontStyle: FontStyle.italic,
+                        height: 16 / 12,
+                        color: Color.fromRGBO(72, 178, 231, 1),
+                      ),
                     ),
+                    onTap: () {
+                      Navigator.pushNamed(context, '/popular');
+                    },
                   ),
                 ],
               ),
@@ -155,7 +193,10 @@ class Home extends StatelessWidget {
               width: screenWidth * (335 / 375),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [CardSneaker(), CardSneaker()],
+                children: [
+                  CardSneaker(isFavorite: false, isAdd: true),
+                  CardSneaker(isFavorite: false, isAdd: false),
+                ],
               ),
             ),
           ),

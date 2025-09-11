@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sneakers/widgets/back.dart';
 import 'package:sneakers/widgets/card_sneaker.dart';
 import 'package:sneakers/widgets/custom_navigator_bar.dart';
 
@@ -21,20 +22,7 @@ class _FavoriteState extends State<Favorite> {
           Positioned(
             top: screenHeight * (48 / 812),
             left: screenWidth * (21 / 375),
-            child: GestureDetector(
-              child: Container(
-                height: screenHeight * (44 / 812),
-                width: screenHeight * (44 / 812),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(40),
-                ),
-                child: Image.asset('icons/Back.png'),
-              ),
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
+            child: Back(color: Colors.white,),
           ),
           Positioned(
             top: screenHeight * (60 / 812),
@@ -70,7 +58,7 @@ class _FavoriteState extends State<Favorite> {
             top: screenHeight * (112 / 812),
             left: screenWidth * (20 / 375),
             child: SizedBox(
-              height: screenHeight * (182 / 812),
+              height: screenHeight * (773 / 812),
               width: screenWidth * (335 / 375),
               child: GridView.builder(
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -79,9 +67,9 @@ class _FavoriteState extends State<Favorite> {
                   mainAxisSpacing: 15,
                   crossAxisSpacing: 15,
                 ),
-                itemCount: 2,
+                itemCount: 8,
                 itemBuilder: (BuildContext context, i) {
-                  return CardSneaker();
+                  return CardSneaker(isFavorite: true, isAdd: true,);
                 },
               ),
             ),

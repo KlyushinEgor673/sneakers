@@ -18,18 +18,6 @@ class _CustomNavigatorBarState extends State<CustomNavigatorBar> {
       top: screenHeight * (706 / 812),
       child: Stack(
         children: [
-          Positioned(
-            left: screenWidth * (160 / 375),
-            child: Container(
-              height: screenHeight * (56 / 812),
-              width: screenHeight * (56 / 812),
-              decoration: BoxDecoration(
-                color: Color.fromRGBO(72, 178, 231, 1),
-                borderRadius: BorderRadius.circular(30),
-              ),
-              child: Image.asset('icons/bag-2.png'),
-            ),
-          ),
           Image.asset(
             'components/NavBar.png',
             fit: BoxFit.fitWidth,
@@ -94,22 +82,45 @@ class _CustomNavigatorBarState extends State<CustomNavigatorBar> {
                                 : Color.fromRGBO(106, 106, 106, 1),
                           ),
                           onTap: (){
-
+                            Navigator.pushNamed(context, '/notification');
                           },
                         ),
-                        Image.asset(
-                          'icons/Profile.png',
-                          width: screenHeight * (24 / 812),
-                          height: screenHeight * (24 / 812),
-                          color: (widget.id == 4)
-                              ? Color.fromRGBO(72, 178, 231, 1)
-                              : Color.fromRGBO(106, 106, 106, 1),
+                        GestureDetector(
+                          child: Image.asset(
+                            'icons/Profile.png',
+                            width: screenHeight * (24 / 812),
+                            height: screenHeight * (24 / 812),
+                            color: (widget.id == 4)
+                                ? Color.fromRGBO(72, 178, 231, 1)
+                                : Color.fromRGBO(106, 106, 106, 1),
+                          ),
+                          onTap: (){
+                            Navigator.pushNamed(context, '/sign_in');
+                          },
                         ),
                       ],
                     ),
                   ),
                 ],
               ),
+            ),
+          ),
+          Positioned(
+            left: screenWidth * (160 / 375),
+            child: GestureDetector(
+              child: Container(
+                height: screenHeight * (56 / 812),
+                width: screenHeight * (56 / 812),
+                decoration: BoxDecoration(
+                  color: Color.fromRGBO(72, 178, 231, 1),
+                  borderRadius: BorderRadius.circular(30),
+                ),
+                child: Image.asset('icons/bag-2.png'),
+              ),
+              onTap: (){
+                print('aaaaaaaaaaaaaaaaaaaa');
+                Navigator.pushNamed(context, '/my_cart');
+              },
             ),
           ),
         ],

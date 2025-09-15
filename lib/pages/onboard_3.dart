@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sneakers/app_text_styles.dart';
 import 'package:sneakers/widgets/next_btn.dart';
 import 'package:sneakers/widgets/blue_line.dart';
 import 'package:sneakers/widgets/white_line.dart';
@@ -68,15 +69,7 @@ class Onboard3 extends StatelessWidget {
                   child: Text(
                     'У Вас Есть Сила, Чтобы',
                     textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontFamily: 'New Peninim MT',
-                      fontStyle: FontStyle.italic,
-                      color: Colors.white,
-                      fontWeight: FontWeight.w400,
-                      height: 1.3,
-                      fontSize: 34,
-                      letterSpacing: 0,
-                    ) ,
+                    style: AppTextStyles.titleOnboard,
                   ),
                 ),
               ),
@@ -85,18 +78,13 @@ class Onboard3 extends StatelessWidget {
               top: screenHeight * (543 / 812),
               right: 0,
               left: 0,
-              child: SizedBox(
-                width: 322,
-                child: Text(
-                  'В вашей комнате много красивых и привлекательных растений',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: Color.fromRGBO(216, 216, 216, 1),
-                    fontSize: 16,
-                    fontWeight: FontWeight.w400,
-                    fontStyle: FontStyle.italic,
-                    height: 1.5,
-                    fontFamily: 'New Peninim MT',
+              child: Center(
+                child: SizedBox(
+                  width: 322,
+                  child: Text(
+                    'В вашей комнате много красивых и привлекательных растений',
+                    textAlign: TextAlign.center,
+                    style: AppTextStyles.subtitleOnboard,
                   ),
                 ),
               ),

@@ -5,6 +5,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:sneakers/app_text_styles.dart';
 import 'package:sneakers/widgets/auth_btn.dart';
 import 'package:sneakers/widgets/back.dart';
+import 'package:sneakers/widgets/map_address.dart';
 
 class Checkout extends StatefulWidget {
   const Checkout({super.key});
@@ -68,7 +69,16 @@ class _CheckoutState extends State<Checkout> {
                         Positioned(
                           top: screenHeight * (16 / 812),
                           left: screenWidth * (20 / 375),
-                          child: Text('Контактная информация'),
+                          child: Text(
+                            'Контактная информация',
+                            style: TextStyle(
+                              fontFamily: 'Raleway',
+                              fontWeight: FontWeight.w500,
+                              fontSize: 14,
+                              height: 20 / 14,
+                              letterSpacing: 0,
+                            ),
+                          ),
                         ),
                         Positioned(
                           top: screenHeight * (52 / 812),
@@ -92,12 +102,31 @@ class _CheckoutState extends State<Checkout> {
                         Positioned(
                           top: screenHeight * (52 / 812),
                           left: screenWidth * (72 / 375),
-                          child: Text(_emailText),
+                          child: Text(
+                            _emailText,
+                            style: TextStyle(
+                              fontFamily: 'Poppins',
+                              fontWeight: FontWeight.w500,
+                              fontSize: 14,
+                              height: 20 / 14,
+                              letterSpacing: 0,
+                            ),
+                          ),
                         ),
                         Positioned(
                           top: screenHeight * (76 / 812),
                           left: screenWidth * (72 / 375),
-                          child: Text('Email'),
+                          child: Text(
+                            'Email',
+                            style: TextStyle(
+                              fontFamily: 'Poppins',
+                              fontWeight: FontWeight.w500,
+                              fontSize: 12,
+                              height: 16 / 12,
+                              letterSpacing: 0,
+                              color: Color.fromRGBO(106, 106, 106, 1),
+                            ),
+                          ),
                         ),
                         Positioned(
                           top: screenHeight * (62 / 812),
@@ -131,12 +160,31 @@ class _CheckoutState extends State<Checkout> {
                         Positioned(
                           top: screenHeight * (108 / 812),
                           left: screenWidth * (72 / 375),
-                          child: Text(_phoneText),
+                          child: Text(
+                            _phoneText,
+                            style: TextStyle(
+                              fontFamily: 'Poppins',
+                              fontWeight: FontWeight.w500,
+                              fontSize: 14,
+                              height: 20 / 14,
+                              letterSpacing: 0,
+                            ),
+                          ),
                         ),
                         Positioned(
                           top: screenHeight * (132 / 812),
                           left: screenWidth * (72 / 375),
-                          child: Text('Телефон'),
+                          child: Text(
+                            'Телефон',
+                            style: TextStyle(
+                              fontFamily: 'Poppins',
+                              fontWeight: FontWeight.w500,
+                              fontSize: 12,
+                              height: 16 / 12,
+                              letterSpacing: 0,
+                              color: Color.fromRGBO(106, 106, 106, 1),
+                            ),
+                          ),
                         ),
                         Positioned(
                           top: screenHeight * (118 / 812),
@@ -150,12 +198,31 @@ class _CheckoutState extends State<Checkout> {
                         Positioned(
                           top: screenHeight * (160 / 812),
                           left: screenWidth * (20 / 375),
-                          child: Text('Адрес'),
+                          child: Text(
+                            'Адрес',
+                            style: TextStyle(
+                              fontFamily: 'Raleway',
+                              fontWeight: FontWeight.w500,
+                              fontSize: 14,
+                              height: 20 / 14,
+                              letterSpacing: 0,
+                            ),
+                          ),
                         ),
                         Positioned(
                           top: screenHeight * (192 / 812),
                           left: screenWidth * (20 / 375),
-                          child: Text('1082 Аэропорт, Нигерии'),
+                          child: Text(
+                            '1082 Аэропорт, Нигерии',
+                            style: TextStyle(
+                              fontFamily: 'Poppins',
+                              fontWeight: FontWeight.w500,
+                              fontSize: 12,
+                              height: 16 / 12,
+                              letterSpacing: 0,
+                              color: Color.fromRGBO(106, 106, 106, 1),
+                            ),
+                          ),
                         ),
                         Positioned(
                           top: screenHeight * (188 / 812),
@@ -169,63 +236,21 @@ class _CheckoutState extends State<Checkout> {
                         Positioned(
                           top: screenHeight * (224 / 812),
                           left: screenWidth * (20 / 375),
-                          child: Stack(
-                            children: [
-                              ClipRRect(
-                                child: Image.asset(
-                                  'images/map.png',
-                                  width: screenWidth * (295 / 375),
-                                  height: screenHeight * (101 / 812),
-                                  fit: BoxFit.cover,
-                                ),
-                                borderRadius: BorderRadius.circular(16),
-                              ),
-                              Container(
-                                width: screenWidth * (295 / 375),
-                                height: screenHeight * (101 / 812),
-                                decoration: BoxDecoration(
-                                  color: Color.fromRGBO(0, 0, 0, 0.33),
-                                  borderRadius: BorderRadius.circular(16),
-                                ),
-                              ),
-                              Positioned(
-                                top: screenHeight * (46 / 812),
-                                left: 0,
-                                right: 0,
-                                child: Center(
-                                  child: Container(
-                                    width: screenWidth * (36 / 375),
-                                    height: screenHeight * (36 / 812),
-                                    decoration: BoxDecoration(
-                                      color: Color.fromRGBO(72, 178, 231, 1),
-                                      borderRadius: BorderRadius.circular(30),
-                                    ),
-                                    child: Center(
-                                      child: SvgPicture.asset(
-                                        'icons/Marker.svg',
-                                        height: screenHeight * (20 / 812),
-                                        width: screenWidth * (20 / 375),
-                                        color: Colors.white,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              Positioned(
-                                top: screenHeight * (19 / 812),
-                                left: 0,
-                                right: 0,
-                                child: Center(
-                                  child: Text('Посмотреть на карте'),
-                                ),
-                              ),
-                            ],
-                          ),
+                          child: MapAddress(),
                         ),
                         Positioned(
                           top: screenHeight * (337 / 812),
                           left: screenWidth * (20 / 375),
-                          child: Text('Способ оплаты'),
+                          child: Text(
+                            'Способ оплаты',
+                            style: TextStyle(
+                              fontFamily: 'Raleway',
+                              fontWeight: FontWeight.w500,
+                              fontSize: 14,
+                              height: 20 / 14,
+                              letterSpacing: 0,
+                            ),
+                          ),
                         ),
                         Positioned(
                           top: screenHeight * (369 / 812),
@@ -252,7 +277,16 @@ class _CheckoutState extends State<Checkout> {
                         Positioned(
                           top: screenHeight * (369 / 812),
                           left: screenWidth * (72 / 375),
-                          child: Text('DbL Card'),
+                          child: Text(
+                            'DbL Card',
+                            style: TextStyle(
+                              fontFamily: 'Work Sans',
+                              fontWeight: FontWeight.w500,
+                              fontSize: 14,
+                              height: 20 / 14,
+                              letterSpacing: 0,
+                            ),
+                          ),
                         ),
                         Positioned(
                           top: screenHeight * (393 / 812),
@@ -263,8 +297,29 @@ class _CheckoutState extends State<Checkout> {
                             child: Row(
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
-                                Text('**** **** '),
-                                if (!_isEmpty) Text('0696 4629'),
+                                Text(
+                                  '**** **** ',
+                                  style: TextStyle(
+                                    fontFamily: 'Poppins',
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 12,
+                                    height: 16 / 12,
+                                    letterSpacing: 0,
+                                    color: Color.fromRGBO(106, 106, 106, 1),
+                                  ),
+                                ),
+                                if (!_isEmpty)
+                                  Text(
+                                    '0696 4629',
+                                    style: TextStyle(
+                                      fontFamily: 'Poppins',
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 12,
+                                      height: 16 / 12,
+                                      letterSpacing: 0,
+                                      color: Color.fromRGBO(106, 106, 106, 1),
+                                    ),
+                                  ),
                               ],
                             ),
                           ),
@@ -291,7 +346,29 @@ class _CheckoutState extends State<Checkout> {
                       children: [
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [Text('Сумма'), Text('₽753.95')],
+                          children: [
+                            Text(
+                              'Сумма',
+                              style: TextStyle(
+                                fontFamily: 'Raleway',
+                                fontWeight: FontWeight.w500,
+                                fontSize: 16,
+                                height: 20 / 16,
+                                letterSpacing: 0,
+                                color: Color.fromRGBO(106, 106, 106, 1),
+                              ),
+                            ),
+                            Text(
+                              '₽753.95',
+                              style: TextStyle(
+                                fontFamily: 'Poppins',
+                                fontWeight: FontWeight.w500,
+                                fontSize: 16,
+                                height: 1,
+                                letterSpacing: 0,
+                              ),
+                            ),
+                          ],
                         ),
                         Positioned(
                           top: screenHeight * (27.81 / 812),
@@ -299,7 +376,29 @@ class _CheckoutState extends State<Checkout> {
                             width: screenWidth * (335 / 375),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [Text('Доставка'), Text('₽753.95')],
+                              children: [
+                                Text(
+                                  'Доставка',
+                                  style: TextStyle(
+                                    fontFamily: 'Raleway',
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 16,
+                                    height: 20 / 16,
+                                    letterSpacing: 0,
+                                    color: Color.fromRGBO(106, 106, 106, 1),
+                                  ),
+                                ),
+                                Text(
+                                  '₽753.95',
+                                  style: TextStyle(
+                                    fontFamily: 'Poppins',
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 16,
+                                    height: 1,
+                                    letterSpacing: 0,
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
                         ),
@@ -316,14 +415,54 @@ class _CheckoutState extends State<Checkout> {
                             width: screenWidth * (335 / 375),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [Text('Итого'), Text('₽814.15')],
+                              children: [
+                                Text(
+                                  'Итого',
+                                  style: TextStyle(
+                                    fontFamily: 'Raleway',
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 16,
+                                    height: 20 / 16,
+                                    letterSpacing: 0,
+                                  ),
+                                ),
+                                Text(
+                                  '₽814.15',
+                                  style: TextStyle(
+                                    fontFamily: 'Poppins',
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 16,
+                                    height: 1,
+                                    letterSpacing: 0,
+                                    color: Color.fromRGBO(72, 178, 231, 1),
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
                         ),
                         Positioned(
                           top: screenHeight * (143.33 / 812),
-                          child: AuthBtn(
-                            onPressed: () {
+                          child: GestureDetector(
+                            child: Container(
+                              width: screenWidth * (335 / 375),
+                              height: screenHeight * (48.67 / 812),
+                              decoration: BoxDecoration(
+                                color: Color.fromRGBO(72, 178, 231, 1),
+                                borderRadius: BorderRadius.circular(12)
+                              ),
+                              child: Center(
+                                child: Text('Подтвердить', style: TextStyle(
+                                  fontFamily: 'Raleway',
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 14,
+                                  height: 22 / 14,
+                                  letterSpacing: 0,
+                                  color: Colors.white
+                                ),),
+                              ),
+                            ),
+                            onTap: () {
                               if (_isEmpty == false) {
                                 setState(() {
                                   _isEmpty = true;
@@ -336,8 +475,6 @@ class _CheckoutState extends State<Checkout> {
                                 });
                               }
                             },
-                            text: 'Подтвердить',
-                            radius: 12,
                           ),
                         ),
                       ],
@@ -395,7 +532,15 @@ class _CheckoutState extends State<Checkout> {
                       child: Center(
                         child: SizedBox(
                           width: screenWidth * (159 / 375),
-                          child: Text('Вы успешно оформили заказ'),
+                          child: Text('Вы успешно оформили заказ',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontFamily: 'Raleway',
+                            fontWeight: FontWeight.w500,
+                            fontSize: 20,
+                            height: 28 / 20,
+                            letterSpacing: 0
+                          ),),
                         ),
                       ),
                     ),
@@ -410,7 +555,14 @@ class _CheckoutState extends State<Checkout> {
                             color: Color.fromRGBO(72, 178, 231, 1),
                             borderRadius: BorderRadius.circular(16),
                           ),
-                          child: Center(child: Text('Вернуться к покупкам')),
+                          child: Center(child: Text('Вернуться к покупкам', style: TextStyle(
+                            fontFamily: 'Raleway',
+                            fontWeight: FontWeight.w500,
+                            fontSize: 16,
+                            height: 1,
+                            letterSpacing: 0,
+                            color: Colors.white
+                          ),)),
                         ),
                         onTap: () {
                           Navigator.pushNamed(context, '/home');

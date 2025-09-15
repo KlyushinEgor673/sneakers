@@ -1,9 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:sneakers/widgets/back.dart';
 import 'package:sneakers/widgets/pole_otp.dart';
 
-class Verification extends StatelessWidget {
+class Verification extends StatefulWidget {
   const Verification({super.key});
+
+  @override
+  State<Verification> createState() => _VerificationState();
+}
+
+class _VerificationState extends State<Verification> {
+  final _controller = TextEditingController();
+  final _code = ['', '', '', '', '', ''];
+  final FocusNode focusNodeOTP = FocusNode();
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_){
+      FocusScope.of(context).requestFocus(focusNodeOTP);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -13,6 +31,35 @@ class Verification extends StatelessWidget {
       backgroundColor: Colors.white,
       body: Stack(
         children: [
+          Positioned(
+              top: -screenHeight,
+              left: 0,
+              child: SizedBox(
+                  width: 300,
+                  child: TextField(
+                    maxLength: 6,
+                    keyboardType: TextInputType.number,
+                    controller: _controller,
+                    focusNode: focusNodeOTP,
+                    onChanged: (value){
+                      for (int i = 0; i < 6; ++i){
+                        try {
+                          _code[i] = value[i];
+                        } catch(e) {
+                          _code[i] = '';
+                        }
+                      }
+                      setState((){
+                        _code;
+                      });
+                    },
+                    inputFormatters: [
+                      FilteringTextInputFormatter.digitsOnly,
+                    ],
+                    onSubmitted: (value){
+                      Navigator.pushNamed(context, '/profile_in_account');
+                    },
+                  ))),
           Positioned(
             top: screenHeight * (64 / 812),
             left: screenWidth * (20 / 375),
@@ -87,12 +134,12 @@ class Verification extends StatelessWidget {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          PoleOtp(),
-                          PoleOtp(),
-                          PoleOtp(),
-                          PoleOtp(),
-                          PoleOtp(),
-                          PoleOtp(),
+                          PoleOtp(text: _code[0], focusNodeOTP: focusNodeOTP,),
+                          PoleOtp(text: _code[1], focusNodeOTP: focusNodeOTP,),
+                          PoleOtp(text: _code[2], focusNodeOTP: focusNodeOTP,),
+                          PoleOtp(text: _code[3], focusNodeOTP: focusNodeOTP,),
+                          PoleOtp(text: _code[4], focusNodeOTP: focusNodeOTP,),
+                          PoleOtp(text: _code[5], focusNodeOTP: focusNodeOTP,),
                         ],
                       ),
                     ),

@@ -1,6 +1,8 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:sneakers/widgets/button_side_menu.dart';
 
 class SideMenu extends StatelessWidget {
   const SideMenu({super.key});
@@ -44,55 +46,61 @@ class SideMenu extends StatelessWidget {
           Positioned(
             top: screenHeight * (267 / 812),
             left: screenWidth * (20 / 375),
-            child: Container(
-              height: screenHeight * (24 / 812),
-              width: screenWidth * (294.75 / 375),
-              color: Colors.red,
+            child: ButtonSideMenu(
+              path: 'icons/Profile.svg',
+              text: 'Профиль',
+              where: '/profile',
+              isNotification: false,
             ),
           ),
           Positioned(
             top: screenHeight * (321 / 812),
             left: screenWidth * (20 / 375),
-            child: Container(
-              height: screenHeight * (24 / 812),
-              width: screenWidth * (294.75 / 375),
-              color: Colors.red,
+            child: ButtonSideMenu(
+              path: 'icons/bag-2.svg',
+              text: 'Корзина',
+              where: '/my_cart',
+              isNotification: false,
             ),
           ),
           Positioned(
             top: screenHeight * (375 / 812),
             left: screenWidth * (20 / 375),
-            child: Container(
-              height: screenHeight * (24 / 812),
-              width: screenWidth * (294.75 / 375),
-              color: Colors.red,
+            child: ButtonSideMenu(
+              path: 'icons/Favorite.svg',
+              text: 'Избраное',
+              where: '/favorite',
+              isNotification: false,
             ),
           ),
           Positioned(
             top: screenHeight * (425 / 812),
             left: screenWidth * (20 / 375),
-            child: Container(
-              height: screenHeight * (24 / 812),
-              width: screenWidth * (294.75 / 375),
-              color: Colors.red,
+            child: ButtonSideMenu(
+              path: 'icons/Orders.svg',
+              text: 'Заказы',
+              where: '/orders',
+              isNotification: false,
             ),
           ),
           Positioned(
             top: screenHeight * (478 / 812),
             left: screenWidth * (20 / 375),
-            child: Container(
-              height: screenHeight * (24 / 812),
-              width: screenWidth * (294.75 / 375),
-              color: Colors.red,
+            child: ButtonSideMenu(
+              path: 'icons/Notification.svg',
+              text: 'Уведомления',
+              where: '/notification',
+              isNotification: true,
             ),
           ),
           Positioned(
             top: screenHeight * (533 / 812),
             left: screenWidth * (20 / 375),
-            child: Container(
-              height: screenHeight * (24 / 812),
-              width: screenWidth * (294.75 / 375),
-              color: Colors.red,
+            child: ButtonSideMenu(
+              path: 'icons/Settings.svg',
+              text: 'Настройки',
+              where: '/',
+              isNotification: false,
             ),
           ),
           Positioned(
@@ -107,12 +115,52 @@ class SideMenu extends StatelessWidget {
               ),
             ),
           ),
-
+          Positioned(
+            top: screenHeight * (625 / 812),
+            left: screenWidth * (20 / 375),
+            child: GestureDetector(
+              child: SizedBox(
+                width: screenWidth * (90 / 375),
+                child: Stack(
+                  children: [
+                    Positioned(
+                      child: SvgPicture.asset(
+                        'icons/Logout.svg',
+                        height: screenHeight * (24 / 812),
+                        width: screenWidth * (24 / 375),
+                        color: Colors.white,
+                      ),
+                    ),
+                    Positioned(
+                      left: screenWidth * (43 / 375),
+                      top: 0,
+                      bottom: 0,
+                      child: Center(
+                        child: Text(
+                          'Выйти',
+                          style: TextStyle(
+                            fontFamily: 'Raleway',
+                            fontWeight: FontWeight.w500,
+                            fontSize: 16,
+                            height: 20 / 16,
+                            letterSpacing: 0,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              onTap: () {
+                Navigator.pushNamed(context, '/sign_in');
+              },
+            ),
+          ),
           Positioned(
             top: screenHeight * (97 / 812),
             left: screenWidth * (241 / 375),
             child: Container(
-              // color: Colors.green,
               width: screenWidth * (278.19 / 375),
               height: screenHeight * (602.59 / 812),
               child: Transform.rotate(
@@ -121,16 +169,11 @@ class SideMenu extends StatelessWidget {
                   child: Image.asset('images/Home.jpg', fit: BoxFit.cover),
                   borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(25),
-                    topLeft: Radius.circular(25)
+                    topLeft: Radius.circular(25),
                   ),
                 ),
               ),
             ),
-            // Image.asset(
-            //   'images/Home.jpg',
-            //   width: screenWidth * (278.19),
-            //   height: screenHeight * (602.59 / 375),
-            // ),
           ),
         ],
       ),

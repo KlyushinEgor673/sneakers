@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sneakers/app_text_styles.dart';
 import 'package:sneakers/widgets/check_text_field.dart';
 import 'package:sneakers/widgets/custom_navigator_bar.dart';
 
@@ -29,6 +30,14 @@ class _EditProfileState extends State<EditProfile> {
                 decoration: BoxDecoration(
                   color: Color.fromRGBO(72, 178, 231, 1),
                   borderRadius: BorderRadius.circular(14),
+                ),
+                child: Center(
+                  child: Text('Сохранить', style: TextStyle(
+                    color: Colors.white,
+                    fontFamily: 'Raleway',
+                    fontWeight: FontWeight.w600,
+                    fontSize: 16
+                  ),),
                 ),
               ),
             ),
@@ -64,13 +73,21 @@ class _EditProfileState extends State<EditProfile> {
           ),
           Positioned(
             top: screenHeight * (265 / 812),
-            left: screenWidth * (114 / 375),
-            child: Text('Изменить фото профиля', style: TextStyle()),
+            left: 0,
+            right: 0,
+            child: Center(child: Text('Изменить фото профиля', style: TextStyle(
+              fontFamily: 'Raleway',
+              fontWeight: FontWeight.w600,
+              fontSize: 12,
+              height: 16 / 12,
+              letterSpacing: 0,
+              color: Color.fromRGBO(72, 178, 231, 1)
+            ),)),
           ),
           Positioned(
             top: screenHeight * (302 / 812),
             left: screenWidth * (22 / 375),
-            child: Text('Имя'),
+            child: Text('Имя', style: AppTextStyles.whatWrite,),
           ),
           Positioned(
             top: screenHeight * (338 / 812),
@@ -82,7 +99,7 @@ class _EditProfileState extends State<EditProfile> {
           Positioned(
             top: screenHeight * (402 / 812),
             left: screenWidth * (22 / 375),
-            child: Text('Фамилия'),
+            child: Text('Фамилия', style: AppTextStyles.whatWrite,),
           ),
           Positioned(
             top: screenHeight * (438 / 812),
@@ -94,7 +111,7 @@ class _EditProfileState extends State<EditProfile> {
           Positioned(
             top: screenHeight * (502 / 812),
             left: screenWidth * (22 / 375),
-            child: Text('Адрес'),
+            child: Text('Адрес', style: AppTextStyles.whatWrite,),
           ),
           Positioned(
             top: screenHeight * (538 / 812),
@@ -106,7 +123,7 @@ class _EditProfileState extends State<EditProfile> {
           Positioned(
             top: screenHeight * (602 / 812),
             left: screenWidth * (22 / 375),
-            child: Text('Телефон'),
+            child: Text('Телефон', style: AppTextStyles.whatWrite,),
           ),
           Positioned(
             top: screenHeight * (638 / 812),

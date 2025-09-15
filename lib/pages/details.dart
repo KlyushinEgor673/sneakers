@@ -18,7 +18,6 @@ class _DetailsState extends State<Details> {
   double _scaleX = -1;
   bool _isCover = true;
 
-
   @override
   Widget build(BuildContext context) {
     final double screenWidth = MediaQuery.of(context).size.width;
@@ -34,15 +33,18 @@ class _DetailsState extends State<Details> {
           ),
           Positioned(
             top: screenHeight * (60 / 812),
-            left: screenWidth * (135 / 375),
-            child: Text(
-              'Sneaker Shop',
-              style: TextStyle(
-                fontSize: 16,
-                fontStyle: FontStyle.italic,
-                height: 1.25,
-                letterSpacing: 0,
-                fontFamily: 'New Peninim MT',
+            left: 0,
+            right: 0,
+            child: Center(
+              child: Text(
+                'Sneaker Shop',
+                style: TextStyle(
+                  fontFamily: 'Raleway',
+                  fontWeight: FontWeight.w600,
+                  fontSize: 16,
+                  height: 20 / 16,
+                  letterSpacing: 0,
+                ),
               ),
             ),
           ),
@@ -59,11 +61,11 @@ class _DetailsState extends State<Details> {
               child: Text(
                 'Nike Air Max 270 Essential',
                 style: TextStyle(
+                  fontFamily: 'Raleway',
+                  fontWeight: FontWeight.w700,
                   fontSize: 26,
                   height: 1,
-                  fontStyle: FontStyle.italic,
-                  letterSpacing: 0,
-                  fontFamily: 'New Peninim MT',
+                  letterSpacing: 0
                 ),
               ),
             ),
@@ -74,11 +76,11 @@ class _DetailsState extends State<Details> {
             child: Text(
               'Men’s Shoes',
               style: TextStyle(
-                fontStyle: FontStyle.italic,
+                fontFamily: 'Raleway',
+                fontWeight: FontWeight.w500,
                 fontSize: 16,
                 height: 1,
                 letterSpacing: 0,
-                fontFamily: 'New Peninim MT',
                 color: Color.fromRGBO(106, 106, 106, 1),
               ),
             ),
@@ -89,10 +91,11 @@ class _DetailsState extends State<Details> {
             child: Text(
               '₽179.39',
               style: TextStyle(
+                fontFamily: 'Poppins',
+                fontWeight: FontWeight.w600,
                 fontSize: 24,
                 height: 1,
-                letterSpacing: 0,
-                fontFamily: 'New Peninim MT',
+                letterSpacing: 0
               ),
             ),
           ),
@@ -252,12 +255,12 @@ class _DetailsState extends State<Details> {
                 'непревзойденный комфорт в течение всего дня. '
                 'Изящный дизайн ........',
                 style: TextStyle(
+                  fontFamily: 'Poppins',
+                  fontWeight: FontWeight.w400,
                   fontSize: 14,
-                  fontStyle: FontStyle.italic,
-                  color: Color.fromRGBO(106, 106, 106, 1),
-                  letterSpacing: 0,
                   height: 24 / 14,
-                  fontFamily: 'New Peninim MT',
+                  letterSpacing: 0,
+                  color: Color.fromRGBO(106, 106, 106, 1)
                 ),
               ),
             ),
@@ -269,11 +272,10 @@ class _DetailsState extends State<Details> {
               'Подробнее',
               style: TextStyle(
                 color: Color.fromRGBO(72, 178, 231, 1),
+                fontFamily: 'Poppins',
                 fontSize: 14,
-                fontStyle: FontStyle.italic,
-                fontFamily: 'New Peninim MT',
                 height: 21 / 14,
-                letterSpacing: 0,
+                letterSpacing: 0
               ),
             ),
           ),
@@ -314,11 +316,10 @@ class _DetailsState extends State<Details> {
                         _textButton,
                         style: TextStyle(
                           color: Colors.white,
+                          fontFamily: 'Poppins',
                           fontSize: 14,
-                          height: 1.5,
-                          letterSpacing: 0,
-                          fontFamily: 'New Peninim MT',
-                          fontStyle: FontStyle.italic,
+                          height: 21 / 14,
+                          letterSpacing: 0
                         ),
                       ),
                     ),
@@ -334,7 +335,7 @@ class _DetailsState extends State<Details> {
                   ],
                 ),
               ),
-              onTap: (){
+              onTap: () {
                 setState(() {
                   _textButton = 'Добавлено';
                 });

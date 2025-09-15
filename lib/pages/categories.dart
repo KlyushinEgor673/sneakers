@@ -55,13 +55,31 @@ class _CategoryState extends State<Categories> {
               left: 0,
               right: 0,
               child: Center(
-                child: Text(_categoryName, style: TextStyle(fontSize: 16)),
+                child: Text(
+                  _categoryName,
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontFamily: 'Raleway',
+                    fontWeight: FontWeight.w600,
+                    height: 20 / 16,
+                    letterSpacing: 0,
+                  ),
+                ),
               ),
             ),
             Positioned(
               top: screenHeight * (108 / 812),
               left: screenWidth * (21 / 375),
-              child: Text('Категории'),
+              child: Text(
+                'Категории',
+                style: TextStyle(
+                  fontFamily: 'Raleway',
+                  fontWeight: FontWeight.w600,
+                  fontSize: 16,
+                  height: 1,
+                  letterSpacing: 0,
+                ),
+              ),
             ),
             Positioned(
               top: screenHeight * (143 / 812),

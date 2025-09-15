@@ -2,10 +2,12 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:sneakers/app_text_styles.dart';
 import 'package:sneakers/widgets/auth_text_field.dart';
 import 'package:sneakers/widgets/back.dart';
 import 'package:sneakers/widgets/custom_navigator_bar.dart';
 import 'package:sneakers/widgets/hamburger.dart';
+import 'package:sneakers/widgets/label_profile.dart';
 
 class ProfileInAccount extends StatefulWidget {
   const ProfileInAccount({super.key});
@@ -26,9 +28,7 @@ class _ProfileInAccountState extends State<ProfileInAccount> {
           Positioned(
             top: screenHeight * (63 / 812),
             left: screenWidth * (18 / 375),
-            child: Center(
-              child: Hamburger(),
-            ),
+            child: Center(child: Hamburger()),
           ),
           Positioned(
             top: screenHeight * (62 / 812),
@@ -110,15 +110,21 @@ class _ProfileInAccountState extends State<ProfileInAccount> {
               child: Stack(
                 children: [
                   Positioned(
-                    top: screenHeight * (8 / 812),
                     left: screenWidth * (8 / 375),
-                    child: Container(
-                      color: Colors.red,
-                      height: screenHeight * (55 / 812),
-                      width: screenWidth * (22 / 375),
-                      child: Transform.rotate(
-                        angle: 270 * (pi / 180),
-                        child: Text('Открыть'),
+                    top: 0,
+                    bottom: 0,
+                    child: Center(
+                      child: RotatedBox(
+                        quarterTurns: 3,
+                        child: Text(
+                          'Открыть',
+                          style: TextStyle(
+                            fontWeight: FontWeight.w600,
+                            fontSize: 12,
+                            height: 22 / 12,
+                            letterSpacing: 0,
+                          ),
+                        ),
                       ),
                     ),
                   ),
@@ -147,50 +153,22 @@ class _ProfileInAccountState extends State<ProfileInAccount> {
               height: screenHeight * (384 / 812),
               child: ListView(
                 children: [
-                  Text(
-                    'Имя',
-                    style: TextStyle(
-                      fontSize: 16,
-                      height: 1,
-                      letterSpacing: 0,
-                      fontWeight: FontWeight.w600,
-                      fontFamily: 'Raleway',
-                    ),
-                  ),
-                  AuthTextField(isPwd: false),
-                  Text(
-                    'Имя',
-                    style: TextStyle(
-                      fontSize: 16,
-                      height: 1,
-                      letterSpacing: 0,
-                      fontWeight: FontWeight.w600,
-                      fontFamily: 'Raleway',
-                    ),
-                  ),
-                  AuthTextField(isPwd: false),
-                  Text(
-                    'Имя',
-                    style: TextStyle(
-                      fontSize: 16,
-                      height: 1,
-                      letterSpacing: 0,
-                      fontWeight: FontWeight.w600,
-                      fontFamily: 'Raleway',
-                    ),
-                  ),
-                  AuthTextField(isPwd: false),
-                  Text(
-                    'Имя',
-                    style: TextStyle(
-                      fontSize: 16,
-                      height: 1,
-                      letterSpacing: 0,
-                      fontWeight: FontWeight.w600,
-                      fontFamily: 'Raleway',
-                    ),
-                  ),
-                  AuthTextField(isPwd: false),
+                  Text('Имя', style: AppTextStyles.whatWrite),
+                  SizedBox(height: screenHeight * (19 / 812)),
+                  LabelProfile(text: 'Emmanuel'),
+                  SizedBox(height: screenHeight * (16 / 812)),
+                  Text('Фамилия', style: AppTextStyles.whatWrite),
+                  SizedBox(height: screenHeight * (19 / 812)),
+                  LabelProfile(text: 'Oyiboke'),
+                  SizedBox(height: screenHeight * (16 / 812)),
+                  Text('Адрес', style: AppTextStyles.whatWrite),
+                  SizedBox(height: screenHeight * (19 / 812)),
+                  LabelProfile(text: 'Nigeria'),
+                  SizedBox(height: screenHeight * (16 / 812)),
+                  Text('Телефон', style: AppTextStyles.whatWrite),
+                  SizedBox(height: screenHeight * (19 / 812)),
+                  LabelProfile(text: '+7 811-732-5298'),
+                  SizedBox(height: screenHeight * (50 / 812)),
                 ],
               ),
             ),

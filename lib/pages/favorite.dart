@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sneakers/app_text_styles.dart';
 import 'package:sneakers/widgets/back.dart';
 import 'package:sneakers/widgets/card_sneaker.dart';
 import 'package:sneakers/widgets/custom_navigator_bar.dart';
@@ -26,15 +27,12 @@ class _FavoriteState extends State<Favorite> {
           ),
           Positioned(
             top: screenHeight * (60 / 812),
-            left: screenWidth * (148 / 375),
-            child: Text(
-              'Избранное',
-              style: TextStyle(
-                fontFamily: 'New Peninim MT',
-                fontSize: 16,
-                height: 1.25,
-                letterSpacing: 0,
-                fontStyle: FontStyle.italic,
+            left: 0,
+            right: 0,
+            child: Center(
+              child: Text(
+                'Избранное',
+                style: AppTextStyles.headline,
               ),
             ),
           ),
@@ -58,7 +56,7 @@ class _FavoriteState extends State<Favorite> {
             top: screenHeight * (112 / 812),
             left: screenWidth * (20 / 375),
             child: SizedBox(
-              height: screenHeight * (773 / 812),
+              height: screenHeight - (screenHeight * (112 / 812)),
               width: screenWidth * (335 / 375),
               child: GridView.builder(
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -67,9 +65,14 @@ class _FavoriteState extends State<Favorite> {
                   mainAxisSpacing: 15,
                   crossAxisSpacing: 15,
                 ),
-                itemCount: 8,
+                itemCount: 10,
                 itemBuilder: (BuildContext context, i) {
-                  return CardSneaker(isFavorite: true, isAdd: true,);
+                  if (i < 8){
+                    return CardSneaker(isFavorite: true, isAdd: true,);
+                  }
+                  else {
+                    return SizedBox(width: 160,);
+                  }
                 },
               ),
             ),

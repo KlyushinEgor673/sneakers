@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class CustomNavigatorBar extends StatefulWidget {
   const CustomNavigatorBar({super.key, required this.id});
@@ -38,32 +39,31 @@ class _CustomNavigatorBarState extends State<CustomNavigatorBar> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         GestureDetector(
-                          child: Image.asset(
-                            'icons/Home.png',
-                            width: screenHeight * (24 / 812),
+                          child: SvgPicture.asset(
+                            'icons/Home.svg',
                             height: screenHeight * (24 / 812),
+                            width: screenWidth * (22 / 375),
                             color: (widget.id == 1)
                                 ? Color.fromRGBO(72, 178, 231, 1)
-                                : Color.fromRGBO(106, 106, 106, 1),
+                                : Color.fromRGBO(112, 123, 129, 1),
                           ),
-                          onTap: (){
+                          onTap: () {
                             Navigator.pushNamed(context, '/home');
                           },
                         ),
                         GestureDetector(
-                          child: Image.asset(
-                            'icons/Favorite.png',
-                            width: screenHeight * (24 / 812),
+                          child: SvgPicture.asset(
+                            'icons/Favorite.svg',
                             height: screenHeight * (24 / 812),
+                            width: screenWidth * (24 / 375),
                             color: (widget.id == 2)
                                 ? Color.fromRGBO(72, 178, 231, 1)
-                                : Color.fromRGBO(106, 106, 106, 1),
+                                : Color.fromRGBO(112, 123, 129, 1),
                           ),
-                          onTap: (){
+                          onTap: () {
                             Navigator.pushNamed(context, '/favorite');
                           },
-                        )
-                        ,
+                        ),
                       ],
                     ),
                   ),
@@ -73,28 +73,28 @@ class _CustomNavigatorBarState extends State<CustomNavigatorBar> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         GestureDetector(
-                          child: Image.asset(
-                            'icons/Notification.png',
-                            width: screenHeight * (24 / 812),
+                          child: SvgPicture.asset(
+                            'icons/Notification.svg',
                             height: screenHeight * (24 / 812),
+                            width: screenWidth * (24 / 375),
                             color: (widget.id == 3)
                                 ? Color.fromRGBO(72, 178, 231, 1)
-                                : Color.fromRGBO(106, 106, 106, 1),
+                                : Color.fromRGBO(112, 123, 129, 1),
                           ),
-                          onTap: (){
+                          onTap: () {
                             Navigator.pushNamed(context, '/notification');
                           },
                         ),
                         GestureDetector(
-                          child: Image.asset(
-                            'icons/Profile.png',
-                            width: screenHeight * (24 / 812),
+                          child: SvgPicture.asset(
+                            'icons/Profile.svg',
                             height: screenHeight * (24 / 812),
+                            width: screenWidth * (24 / 375),
                             color: (widget.id == 4)
                                 ? Color.fromRGBO(72, 178, 231, 1)
-                                : Color.fromRGBO(106, 106, 106, 1),
+                                : Color.fromRGBO(112, 123, 129, 1),
                           ),
-                          onTap: (){
+                          onTap: () {
                             Navigator.pushNamed(context, '/sign_in');
                           },
                         ),
@@ -114,11 +114,24 @@ class _CustomNavigatorBarState extends State<CustomNavigatorBar> {
                 decoration: BoxDecoration(
                   color: Color.fromRGBO(72, 178, 231, 1),
                   borderRadius: BorderRadius.circular(30),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Color.fromRGBO(91, 158, 225, 0.6),
+                      blurRadius: 24,
+                      offset: Offset(0, 8),
+                      spreadRadius: 0,
+                    ),
+                  ],
                 ),
-                child: Image.asset('icons/bag-2.png'),
+                child: Center(
+                  child: SvgPicture.asset(
+                    'icons/bag-2.svg',
+                    height: screenHeight * (24 / 812),
+                    width: screenWidth * (24 / 375),
+                  ),
+                ),
               ),
-              onTap: (){
-                print('aaaaaaaaaaaaaaaaaaaa');
+              onTap: () {
                 Navigator.pushNamed(context, '/my_cart');
               },
             ),

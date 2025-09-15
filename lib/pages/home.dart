@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:sneakers/widgets/bag_button.dart';
 import 'package:sneakers/widgets/box_category.dart';
 import 'package:sneakers/widgets/card_sneaker.dart';
@@ -23,15 +24,18 @@ class Home extends StatelessWidget {
           ),
           Positioned(
             top: screenHeight * (54 / 812),
-            left: screenWidth * (123.71 / 375),
-            child: Text(
-              'Главная',
-              style: TextStyle(
-                fontSize: 32,
-                height: 1,
-                letterSpacing: 0,
-                fontWeight: FontWeight.w400,
-                fontFamily: 'New Peninim MT',
+            left: 0,
+            right: 0,
+            child: Center(
+              child: Text(
+                'Главная',
+                style: TextStyle(
+                  fontFamily: 'Raleway',
+                  fontWeight: FontWeight.w700,
+                  fontSize: 32,
+                  height: 1,
+                  letterSpacing: 0,
+                ),
               ),
             ),
           ),
@@ -50,6 +54,49 @@ class Home extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(14),
                   color: Colors.white,
+                  boxShadow: [
+                    BoxShadow(
+                      color: Color.fromRGBO(0, 0, 0, 0.04),
+                      offset: Offset(0, 4),
+                      blurRadius: 4,
+                      spreadRadius: 0,
+                    ),
+                  ],
+                ),
+                child: Stack(
+                  children: [
+                    Positioned(
+                      left: screenWidth * (30.83 / 375),
+                      top: 0,
+                      bottom: 0,
+                      child: Center(
+                        child: SvgPicture.asset(
+                          'icons/Search.svg',
+                          height: screenHeight * (24 / 812),
+                          width: screenWidth * (24 / 375),
+                          color: Color.fromRGBO(106, 106, 106, 1),
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      left: screenWidth * (62 / 275),
+                      top: 0,
+                      bottom: 0,
+                      child: Center(
+                        child: Text(
+                          'Поиск',
+                          style: TextStyle(
+                            fontFamily: 'Poppins',
+                            fontWeight: FontWeight.w500,
+                            fontSize: 12,
+                            height: 20 / 12,
+                            letterSpacing: 0,
+                            color: Color.fromRGBO(106, 106, 106, 1),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
               onTap: () {
@@ -67,8 +114,25 @@ class Home extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(50),
                   color: Color.fromRGBO(72, 178, 231, 1),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Color.fromRGBO(0, 0, 0, 0.04),
+                      offset: Offset(0, 4),
+                      blurRadius: 4,
+                      spreadRadius: 0,
+                    ),
+                  ],
                 ),
-                child: Image.asset('icons/Sliders.png', color: Colors.white),
+                child: Center(
+                  child: SizedBox(
+                    height: screenHeight * (24 / 812),
+                    width: screenWidth * (24 / 375),
+                    child: SvgPicture.asset(
+                      'icons/Sliders.svg',
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
               ),
               onTap: () {},
             ),
@@ -79,7 +143,8 @@ class Home extends StatelessWidget {
             child: Text(
               'Категории',
               style: TextStyle(
-                fontFamily: 'New Peninim MT',
+                fontFamily: 'Raleway',
+                fontWeight: FontWeight.w600,
                 fontSize: 16,
                 height: 1,
                 letterSpacing: 0,
@@ -159,23 +224,23 @@ class Home extends StatelessWidget {
                   Text(
                     'Популярное',
                     style: TextStyle(
+                      fontFamily: 'Raleway',
+                      fontWeight: FontWeight.w500,
                       fontSize: 16,
-                      fontStyle: FontStyle.italic,
-                      height: 1.5,
+                      height: 24 / 16,
                       letterSpacing: 0,
-                      fontFamily: 'New Peninim MT',
                     ),
                   ),
                   GestureDetector(
                     child: Text(
                       'Все',
                       style: TextStyle(
-                        letterSpacing: 0,
-                        fontFamily: 'New Peninim MT',
-                        fontSize: 12,
-                        fontStyle: FontStyle.italic,
-                        height: 16 / 12,
                         color: Color.fromRGBO(72, 178, 231, 1),
+                        fontFamily: 'Poppins',
+                        fontWeight: FontWeight.w500,
+                        fontSize: 12,
+                        height: 16 / 12,
+                        letterSpacing: 0,
                       ),
                     ),
                     onTap: () {
@@ -211,21 +276,21 @@ class Home extends StatelessWidget {
                   Text(
                     'Акции',
                     style: TextStyle(
+                      fontFamily: 'Raleway',
+                      fontWeight: FontWeight.w600,
                       fontSize: 16,
-                      fontStyle: FontStyle.italic,
-                      height: 1.5,
+                      height: 1,
                       letterSpacing: 0,
-                      fontFamily: 'New Peninim MT',
                     ),
                   ),
                   Text(
                     'Все',
                     style: TextStyle(
-                      letterSpacing: 0,
-                      fontFamily: 'New Peninim MT',
+                      fontFamily: 'Poppins',
+                      fontWeight: FontWeight.w500,
                       fontSize: 12,
-                      fontStyle: FontStyle.italic,
                       height: 16 / 12,
+                      letterSpacing: 0,
                       color: Color.fromRGBO(72, 178, 231, 1),
                     ),
                   ),

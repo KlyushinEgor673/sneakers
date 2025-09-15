@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:sneakers/app_text_styles.dart';
 import 'package:sneakers/widgets/next_btn.dart';
 import 'package:sneakers/widgets/blue_line.dart';
 import 'package:sneakers/widgets/white_line.dart';
@@ -70,15 +71,7 @@ class Onboard2 extends StatelessWidget {
                   child: Text(
                     'Начнем путеществие',
                     textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontFamily: 'New Peninim MT',
-                      fontStyle: FontStyle.italic,
-                      color: Colors.white,
-                      fontWeight: FontWeight.w400,
-                      height: 1.3,
-                      fontSize: 34,
-                      letterSpacing: 0,
-                    ),
+                    style: AppTextStyles.titleOnboard,
                   ),
                 ),
                 alignment: Alignment.center,
@@ -94,14 +87,7 @@ class Onboard2 extends StatelessWidget {
                   child: Text(
                     'Умная, великолепная и модная коллекция Изучите сейчас',
                     textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: Color.fromRGBO(216, 216, 216, 1),
-                      fontSize: 16,
-                      fontWeight: FontWeight.w400,
-                      fontStyle: FontStyle.italic,
-                      height: 1.5,
-                      fontFamily: 'New Peninim MT',
-                    ),
+                    style: AppTextStyles.subtitleOnboard,
                   ),
                 ),
               ),

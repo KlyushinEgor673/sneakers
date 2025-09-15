@@ -37,10 +37,12 @@ class Onboard1 extends StatelessWidget {
                     'ДОБРО ПОЖАЛОВАТЬ',
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      fontFamily: 'New Peninim MT',
-                      color: Colors.white,
+                      fontFamily: 'Raleway',
+                      fontWeight: FontWeight.w900,
                       fontSize: 30,
-                      fontWeight: FontWeight.bold,
+                      height: 1,
+                      letterSpacing: 0,
+                      color: Colors.white
                     ),
                   ),
                 ),

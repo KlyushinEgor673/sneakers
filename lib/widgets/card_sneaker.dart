@@ -71,11 +71,11 @@ class _CardSneaker extends State<CardSneaker> {
               child: Text(
                 'BEST SELLER',
                 style: TextStyle(
-                  fontFamily: 'New Peninim MT',
-                  fontStyle: FontStyle.italic,
+                  fontFamily: 'Poppins',
+                  fontWeight: FontWeight.w500,
                   fontSize: 12,
+                  height: 16 / 12,
                   letterSpacing: 0,
-                  height: 1.25,
                   color: Color.fromRGBO(72, 178, 231, 1),
                 ),
               ),
@@ -86,11 +86,11 @@ class _CardSneaker extends State<CardSneaker> {
               child: Text(
                 'Nike Air Max',
                 style: TextStyle(
-                  fontFamily: 'New Peninim MT',
+                  fontFamily: 'Raleway',
+                  fontWeight: FontWeight.w600,
                   fontSize: 16,
-                  height: 1.25,
-                  letterSpacing: 0,
-                  fontStyle: FontStyle.italic,
+                  height: 20 / 16,
+                  letterSpacing: 0
                 ),
               ),
             ),
@@ -100,11 +100,11 @@ class _CardSneaker extends State<CardSneaker> {
               child: Text(
                 '₽752.00',
                 style: TextStyle(
-                  // fontFamily: 'New Peninim MT',
-                  fontStyle: FontStyle.italic,
-                  letterSpacing: 0,
-                  height: 16 / 14,
+                  fontFamily: 'Poppins',
+                  fontWeight: FontWeight.w500,
                   fontSize: 14,
+                  height: 16 / 14,
+                  letterSpacing: 0
                 ),
               ),
             ),
@@ -125,12 +125,14 @@ class _CardSneaker extends State<CardSneaker> {
                   width: screenWidth * (21 / 375),
                   height: screenHeight * (15.32 / 812),
                   child: widget.isAdd
-                      ? SvgPicture.asset(
-                          'icons/Add.svg',
-                          color: Colors.white,
+                      ? Center(
+                        child: SvgPicture.asset(
+                            'icons/Add.svg',
+                            color: Colors.white,
 
-                          // fit: BoxFit.cover,
-                        )
+                            // fit: BoxFit.cover,
+                          ),
+                      )
                       : Center(
                           child: SvgPicture.asset(
                             'icons/Cart.svg',

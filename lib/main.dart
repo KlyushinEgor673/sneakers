@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:sneakers/pages/checkout.dart';
+import 'package:sneakers/pages/detail_order.dart';
 import 'package:sneakers/pages/details.dart';
 import 'package:sneakers/pages/edit_profile.dart';
 import 'package:sneakers/pages/favorite.dart';
@@ -11,6 +12,7 @@ import 'package:sneakers/pages/notification_page.dart';
 import 'package:sneakers/pages/onboard_1.dart';
 import 'package:sneakers/pages/onboard_2.dart';
 import 'package:sneakers/pages/onboard_3.dart';
+import 'package:sneakers/pages/orders.dart';
 import 'package:sneakers/pages/popular.dart';
 import 'package:sneakers/pages/profile_in_account.dart';
 import 'package:sneakers/pages/register.dart';
@@ -75,6 +77,10 @@ void main() {
           return PageRouteBuilder(pageBuilder: (_, __, ___) => Search());
         } else if (settings.name == '/checkout') {
           return PageRouteBuilder(pageBuilder: (_, __, ___) => Checkout());
+        } else if (settings.name == '/orders') {
+          return PageRouteBuilder(pageBuilder: (_, __, ___) => Orders());
+        } else if (settings.name == '/detail_order') {
+          return PageRouteBuilder(pageBuilder: (_, __, ___) => DetailOrder());
         }
       },
     ),

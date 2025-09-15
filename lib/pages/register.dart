@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:sneakers/app_text_styles.dart';
 import 'package:sneakers/widgets/auth_btn.dart';
 import 'package:sneakers/widgets/auth_text_field.dart';
 import 'package:sneakers/widgets/back.dart';
@@ -32,7 +33,9 @@ class Register extends StatelessWidget {
                     top: 0,
                     left: 0,
                     right: 0,
-                    child: Center(child: Text('Регистрация')),
+                    child: Center(
+                      child: Text('Регистрация', style: AppTextStyles.title),
+                    ),
                   ),
                   Positioned(
                     bottom: 0,
@@ -46,6 +49,7 @@ class Register extends StatelessWidget {
                           textAlign: TextAlign.center,
                           'Заполните Свои Данные '
                           'Или Продолжите Через Социальные Медиа',
+                          style: AppTextStyles.subtitle,
                         ),
                       ),
                     ),
@@ -58,7 +62,9 @@ class Register extends StatelessWidget {
             top: screenHeight * (583 / 812),
             left: screenWidth * (20 / 375),
             child: AuthBtn(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, '/profile_in_account');
+              },
               text: 'Зарегистрироватеься',
               radius: 13,
             ),
@@ -71,14 +77,14 @@ class Register extends StatelessWidget {
               height: screenHeight * (314 / 812),
               child: Stack(
                 children: [
-                  Text('Ваше имя'),
+                  Text('Ваше имя', style: AppTextStyles.whatWrite),
                   Positioned(
                     top: screenHeight * (32 / 812),
                     child: AuthTextField(isPwd: false),
                   ),
                   Positioned(
                     top: screenHeight * (92 / 812),
-                    child: Text('Email'),
+                    child: Text('Email', style: AppTextStyles.whatWrite),
                   ),
                   Positioned(
                     top: screenHeight * (124 / 812),
@@ -86,7 +92,7 @@ class Register extends StatelessWidget {
                   ),
                   Positioned(
                     top: screenHeight * (184 / 812),
-                    child: Text('Пароль'),
+                    child: Text('Пароль', style: AppTextStyles.whatWrite),
                   ),
                   Positioned(
                     top: screenHeight * (216 / 812),
@@ -127,6 +133,21 @@ class Register extends StatelessWidget {
                                 width: screenWidth * (303 / 375),
                                 child: Text(
                                   'Даю согласие на обработку персональных данных',
+                                  style: TextStyle(
+                                    fontFamily: 'Raleway',
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 16,
+                                    height: 1,
+                                    letterSpacing: 0,
+                                    color: Color.fromRGBO(106, 106, 106, 1),
+                                    decoration: TextDecoration.underline,
+                                    decorationColor: Color.fromRGBO(
+                                      106,
+                                      106,
+                                      106,
+                                      1,
+                                    ),
+                                  ),
                                 ),
                               ),
                             ),
@@ -149,9 +170,22 @@ class Register extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text('Есть аккаунт? '),
+                    Text('Есть аккаунт? ', style: TextStyle(
+                      fontFamily: 'Raleway',
+                      fontWeight:  FontWeight.w500,
+                      fontSize: 16,
+                      height: 1,
+                      letterSpacing: 0,
+                      color: Color.fromRGBO(106, 106, 106, 1)
+                    ),),
                     GestureDetector(
-                      child: Text('Войти'),
+                      child: Text('Войти', style: TextStyle(
+                          fontFamily: 'Raleway',
+                          fontWeight:  FontWeight.w500,
+                          fontSize: 16,
+                          height: 1,
+                          letterSpacing: 0
+                      ),),
                       onTap: () {
                         Navigator.pushNamed(context, '/sign_in');
                       },

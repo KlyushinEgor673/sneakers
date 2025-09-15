@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sneakers/app_text_styles.dart';
 import 'package:sneakers/widgets/auth_btn.dart';
 import 'package:sneakers/widgets/auth_text_field.dart';
 import 'package:sneakers/widgets/back.dart';
@@ -40,28 +41,13 @@ class _SignInState extends State<SignIn> {
                   children: [
                     Text(
                       'Привет!',
-                      style: TextStyle(
-                        fontFamily: 'New Peninim MT',
-                        fontStyle: FontStyle.italic,
-                        fontSize: 32,
-                        height: 1.0,
-                        fontWeight: FontWeight.w400,
-                        letterSpacing: 0,
-                      ),
+                      style: AppTextStyles.title,
                     ),
                     SizedBox(height: 8),
                     Text(
                       'Заполните Свои Данные Или Продолжите Через Социальные Медиа',
                       textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontFamily: 'New Peninim MT',
-                        color: Color.fromRGBO(112, 123, 129, 1),
-                        fontSize: 16,
-                        fontWeight: FontWeight.w400,
-                        fontStyle: FontStyle.italic,
-                        height: 1.5,
-                        letterSpacing: 0,
-                      ),
+                      style: AppTextStyles.subtitle,
                     ),
                   ],
                 ),
@@ -76,13 +62,7 @@ class _SignInState extends State<SignIn> {
               height: 20,
               child: Text(
                 'Email',
-                style: TextStyle(
-                  fontWeight: FontWeight.w400,
-                  fontSize: 16,
-                  letterSpacing: 0,
-                  fontStyle: FontStyle.italic,
-                  height: 1.25,
-                ),
+                style: AppTextStyles.whatWrite,
               ),
             ),
           ),
@@ -96,13 +76,7 @@ class _SignInState extends State<SignIn> {
             left: left,
             child: Text(
               'Пароль',
-              style: TextStyle(
-                fontWeight: FontWeight.w400,
-                fontSize: 16,
-                letterSpacing: 0,
-                fontStyle: FontStyle.italic,
-                height: 1.25,
-              ),
+              style: AppTextStyles.whatWrite,
             ),
           ),
           Positioned(
@@ -117,13 +91,11 @@ class _SignInState extends State<SignIn> {
               child: Text(
                 'Восстановить',
                 style: TextStyle(
-                  fontFamily: 'New Peninim MT',
-                  fontWeight: FontWeight.w400,
+                  fontFamily: 'Poppins',
                   fontSize: 12,
-                  color: Color.fromRGBO(112, 123, 129, 1),
-                  height: 1,
+                  height: 16 / 12,
                   letterSpacing: 0,
-                  fontStyle: FontStyle.italic,
+                  color: Color.fromRGBO(112, 123, 129, 1)
                 ),
               ),
               onTap: () {
@@ -152,25 +124,23 @@ class _SignInState extends State<SignIn> {
                 Text(
                   'Вы впервые? ',
                   style: TextStyle(
-                    fontWeight: FontWeight.w400,
+                    fontFamily: 'Raleway',
                     fontSize: 16,
-                    color: Color.fromRGBO(106, 106, 106, 1),
                     height: 1,
                     letterSpacing: 0,
-                    fontFamily: 'New Peninim MT',
-                    fontStyle: FontStyle.italic,
+                    fontWeight: FontWeight.w500,
+                    color: Color.fromRGBO(106, 106, 106, 1),
                   ),
                 ),
                 GestureDetector(
                   child: Text(
                     'Создать пользователя',
                     style: TextStyle(
-                      fontWeight: FontWeight.w400,
+                      fontFamily: 'Raleway',
                       fontSize: 16,
                       height: 1,
                       letterSpacing: 0,
-                      fontFamily: 'New Peninim MT',
-                      fontStyle: FontStyle.italic,
+                      fontWeight: FontWeight.w500,
                     ),
                   ),
                   onTap: () {

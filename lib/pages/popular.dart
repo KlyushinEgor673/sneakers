@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sneakers/app_text_styles.dart';
 import 'package:sneakers/widgets/back.dart';
 import 'package:sneakers/widgets/card_sneaker.dart';
 
@@ -28,11 +29,11 @@ class _PopularState extends State<Popular> {
                 children: [
                   Back(color: Colors.white,),
                   Text('Популярное', style: TextStyle(
+                    fontFamily: 'Raleway',
+                    fontWeight: FontWeight.w500,
                     fontSize: 16,
-                    height: 1.5,
-                    letterSpacing: 0,
-                    fontFamily: 'New Peninim MT',
-                    fontStyle: FontStyle.italic
+                    height: 24 / 16,
+                    letterSpacing: 0
                   )),
                   Container(
                     height: screenHeight * (40 / 812),

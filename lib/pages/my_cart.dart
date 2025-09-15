@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:sneakers/app_text_styles.dart';
-import 'package:sneakers/widgets/auth_btn.dart';
 import 'package:sneakers/widgets/back.dart';
 
 class MyCart extends StatefulWidget {
@@ -12,10 +11,36 @@ class MyCart extends StatefulWidget {
 }
 
 class _MyCartState extends State<MyCart> {
-  final int _countProduct = 3;
-
-  bool _isAdd = false;
-  bool _isDelete = false;
+  int _countProduct = 3;
+  List _products = [
+    {
+      'isDelete': false,
+      'width': 335,
+      'left': 0.0,
+      'isEdit': false,
+      'count': 1,
+      'name': 'Nike Club Max',
+      'price': '₽584.95'
+    },
+    {
+      'isDelete': false,
+      'width': 335,
+      'left': 0.0,
+      'isEdit': false,
+      'count': 1,
+      'name': 'Nike Air Max 200',
+      'price': '₽94.05'
+    },
+    {
+      'isDelete': false,
+      'width': 335,
+      'left': 0.0,
+      'isEdit': false,
+      'count': 1,
+      'name': 'Nike Air Max 270 Essential',
+      'price': '₽74.95'
+    },
+  ];
   double _width = 335;
 
   @override
@@ -70,63 +95,205 @@ class _MyCartState extends State<MyCart> {
               width: screenWidth * (335 / 375),
               height: screenHeight * (414 / 812),
               child: ListView.builder(
-                itemCount: _countProduct,
+                itemCount: _products.length,
                 itemBuilder: (BuildContext, i) {
-                  return Stack(
-                    children: [
-                      if (_isAdd)
-                        Container(
-                          height: screenHeight * (104 / 812),
-                          width: screenWidth * (58 / 375),
-                          decoration: BoxDecoration(
-                            color: Color.fromRGBO(72, 178, 231, 1),
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                        ),
-                      Positioned(
-                        right: _isAdd ? 0 : null,
-                        // top: 0,
-                        child: GestureDetector(
-                          child: Container(
-                            height: screenHeight * (104 / 812),
-                            width: screenWidth * (_width / 375),
-                            margin: EdgeInsets.only(
-                              bottom: screenHeight * (14 / 812),
-                            ),
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(8),
-                            ),
-                          ),
-                          onHorizontalDragUpdate: (details) {
-                            // print();
-                            setState(() {
-                              if (details.delta.dx < 0) {
-                                _width = 267;
-                                _isDelete = true;
-                              }
-                              else {
-                                _isAdd = true;
-                                _width = 270;
-                              }
-                            });
-                            print(_width);
-                          },
-                        ),
-                      ),
-                      if (_isDelete)
+                  return Container(
+                    width: screenWidth * (335 / 375),
+                    height: screenHeight * (104 / 812),
+                    margin: EdgeInsets.only(bottom: screenHeight * (10 / 812)),
+                    child: Stack(
+                      children: [
                         Positioned(
-                          right: 0,
-                          child: Container(
-                            height: screenHeight * (104 / 812),
-                            width: screenWidth * (58 / 375),
-                            decoration: BoxDecoration(
-                              color: Color.fromRGBO(248, 114, 101, 1),
-                              borderRadius: BorderRadius.circular(8),
+                          top: 0,
+                          left: screenWidth * (_products[i]['left'] / 375),
+                          child: GestureDetector(
+                            child: Container(
+                              width:
+                                  screenWidth * (_products[i]['width'] / 375),
+                              height: screenHeight * (104 / 812),
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                              child: Stack(
+                                children: [
+                                  Positioned(
+                                    top: 0,
+                                    bottom: 0,
+                                    left: screenWidth * (10 / 375),
+                                    child: Center(
+                                      child: Container(
+                                        width: screenWidth * (87 / 375),
+                                        height: screenHeight * (85 / 812),
+                                        decoration: BoxDecoration(
+                                          color: Color.fromRGBO(
+                                            247,
+                                            247,
+                                            249,
+                                            1,
+                                          ),
+                                          borderRadius: BorderRadius.circular(
+                                            16,
+                                          ),
+                                        ),
+                                        child: Image.asset(
+                                          'images/nike-epic.png',
+                                          width: screenWidth * (86 / 375),
+                                          height: screenHeight * (55 / 812),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  Positioned(
+                                    left: screenWidth * (127 / 375),
+                                    top: screenHeight * (29 / 812),
+                                    child: Text(_products[i]['name'], style: TextStyle(
+                                      fontFamily: 'Raleway',
+                                      // fontWeight: FontWeight.w500,
+                                      fontSize: 16,
+                                      height: 1,
+                                      letterSpacing: 0
+                                    ),),
+                                  ),
+                                  Positioned(
+                                    left: screenWidth * (127 / 375),
+                                      top: screenHeight * (54 / 812),
+                                      child: Text(_products[i]['price'], style: TextStyle(
+                                        fontFamily: 'Poppins',
+                                        fontSize: 14,
+                                        height: 1,
+                                        letterSpacing: 0,
+                                        fontWeight: FontWeight.w500
+                                      ),))
+                                ],
+                              ),
                             ),
+                            onHorizontalDragEnd: (details) {
+                              if (details.velocity.pixelsPerSecond.dx < 0) {
+                                if (_products[i]['isEdit']) {
+                                  setState(() {
+                                    _products[i]['isEdit'] = false;
+                                    _products[i]['width'] = 335;
+                                    _products[i]['left'] = 0.0;
+                                  });
+                                } else {
+                                  setState(() {
+                                    _products[i]['isDelete'] = true;
+                                    _products[i]['left'] = 0.0;
+                                    _products[i]['width'] = 267;
+                                  });
+                                }
+                              } else {
+                                if (_products[i]['isDelete']) {
+                                  setState(() {
+                                    _products[i]['isDelete'] = false;
+                                    _products[i]['left'] = 0.0;
+                                    _products[i]['width'] = 335;
+                                  });
+                                } else {
+                                  setState(() {
+                                    _products[i]['isEdit'] = true;
+                                    _products[i]['width'] = 267;
+                                    _products[i]['left'] = 68.0;
+                                  });
+                                }
+                              }
+                            },
                           ),
                         ),
-                    ],
+                        if (_products[i]['isEdit'])
+                          Container(
+                            width: screenWidth * (58 / 375),
+                            height: screenHeight * (104 / 812),
+                            decoration: BoxDecoration(
+                              color: Color.fromRGBO(72, 178, 231, 1),
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                            child: Stack(
+                              children: [
+                                Positioned(
+                                  top: screenHeight * (14 / 812),
+                                  left: screenWidth * (22 / 375),
+                                  child: GestureDetector(
+                                    child: SvgPicture.asset(
+                                      'icons/Add.svg',
+                                      width: screenWidth * (14 / 375),
+                                      height: screenHeight * (14 / 812),
+                                      color: Colors.white,
+                                    ),
+                                    onTap: () {
+                                      setState(() {
+                                        _products[i]['count'] =
+                                            _products[i]['count'] + 1;
+                                      });
+                                    },
+                                  ),
+                                ),
+                                Positioned(
+                                  top: screenHeight * (51 / 812),
+                                  left: screenWidth * (26 / 375),
+                                  child: Text(
+                                    _products[i]['count'].toString(),
+                                    style: TextStyle(color: Colors.white),
+                                  ),
+                                ),
+                                Positioned(
+                                  top: screenHeight * (89.5 / 812),
+                                  left: screenWidth * (22 / 375),
+                                  child: GestureDetector(
+                                    child: SvgPicture.asset(
+                                      'icons/Minus.svg',
+                                      width: screenWidth * (14 / 375),
+                                      color: Colors.white,
+                                    ),
+                                    onTap: () {
+                                      if (_products[i]['count'] - 1 == 0) {
+                                        setState(() {
+                                          _products.removeAt(i);
+                                          _countProduct -= 1;
+                                        });
+                                      } else {
+                                        setState(() {
+                                          _products[i]['count'] =
+                                              _products[i]['count'] - 1;
+                                        });
+                                      }
+                                    },
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        if (_products[i]['isDelete'])
+                          Positioned(
+                            right: 0,
+                            child: GestureDetector(
+                              onTap: () {
+                                setState(() {
+                                  _products.removeAt(i);
+                                  _countProduct -= 1;
+                                });
+                              },
+                              child: Container(
+                                width: screenWidth * (58 / 375),
+                                height: screenHeight * (104 / 812),
+                                decoration: BoxDecoration(
+                                  color: Color.fromRGBO(248, 114, 101, 1),
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                                child: Center(
+                                  child: SvgPicture.asset(
+                                    'icons/Trash.svg',
+                                    height: screenHeight * (20 / 812),
+                                    width: screenWidth * (18 / 375),
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                      ],
+                    ),
                   );
                 },
               ),
